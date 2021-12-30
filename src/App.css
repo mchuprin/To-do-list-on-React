@@ -2,37 +2,99 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.back {
+  background: #c98419;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+}
+
+.main-button {
+  border-radius: 0 10px 10px 0;
+  background: #ff7300;
   color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100px;
+  height: 47px;
 }
 
-.App-link {
-  color: #61dafb;
+.main-button:hover {
+  background: white;
+  color: #ff7300;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-line {
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.main-input {
+  padding-left: 10px;
+  border: none;
+  font-size: 20px;
+  border-radius: 10px 0 0 10px;
+  height: 45px;
+  width: 300px;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.check {
+  height: 25px;
+  width: 10%;
+}
+
+.edit-input {
+  width: 57.4%;
+  padding: 0 15px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+}
+
+p {
+  width: 65%;
+  font-size: 20px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.d-button {
+  height: 40px;
+  width: 40px;
+  background:#ff7300;
+  border: none;
+  border-radius: 7px 0 7px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 415px;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+img {
+  width: 17px;
 }

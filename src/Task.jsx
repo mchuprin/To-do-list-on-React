@@ -1,17 +1,15 @@
 import './App.css';
 import axios from 'axios';
+import URL from './url'
 import pencil from './img/pencil.svg';
 import cross from './img/cross.svg';
 
-function Task({task, tasks, setEditTask, updateText, setTasks}) {
-
-  const url = `http://localhost:8000/`;
+const Task = ({task, tasks, setEditTask, updateText, setTasks}) => {
 
   const deleteTask = async (task) => {
-    console.log(task)
-    await axios.delete(`${url}deleteTask?_id=${task._id}`).then((res) => {
+    await axios.delete(`${URL}deleteTask?_id=${task._id}`).then((res) => {
       if (res.status === 200) {
-      const stayedTasks = tasks.filter((i)=> i._id != task._id);
+      const stayedTasks = tasks.filter((i)=> i._id !== task._id);
       setTasks(stayedTasks)
       }
     })
@@ -23,7 +21,7 @@ function Task({task, tasks, setEditTask, updateText, setTasks}) {
   }
 
   const changeChecked = async (task) => {
-    await axios.patch(`${url}updateTask`, {
+    await axios.patch(`${URL}updateTask`, {
       _id: task._id,
       isCheck: !task.isCheck
     }).then(res => {

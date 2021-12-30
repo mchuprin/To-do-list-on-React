@@ -2,24 +2,23 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Task from './Task';
+import URL from './url'
 import EditTask from './EditTask';
 
-function App() {
+const App = () => {
   const [text, setText] = useState('');
   const [tasks, setTasks] = useState([]);
   const [editTask, setEditTask] = useState(null);
   const [taskText, updateText] = useState('');
 
-  const url = `http://localhost:8000/`;
-
   useEffect (async() => {
-    await axios.get(`${url}allTasks`).then(res => {
+    await axios.get(`${URL}allTasks`).then(res => {
       setTasks(res.data);
     })
   }, [])
   
   const addNewTask = async () => {
-    await axios.post(`${url}createTask`, {
+    await axios.post(`${URL}createTask`, {
       text,
       isCheck: false
     }).then(res => {

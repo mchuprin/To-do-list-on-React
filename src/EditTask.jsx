@@ -1,15 +1,15 @@
 import './App.css';
 import axios from 'axios';
+import URL from './url'
 import cross from './img/cross.svg';
 import done from './img/done.svg';
 
-function EditTask({task, tasks, setEditTask, updateText, setTasks, taskText}) {
+const EditTask = ({task, tasks, setEditTask, updateText, setTasks, taskText}) => {
 
-  const url = `http://localhost:8000/`;
+  const URL = `http://localhost:8000/`;
 
   const deleteTask = async (task) => {
-    console.log(task)
-    await axios.delete(`${url}deleteTask?_id=${task._id}`).then((res) => {
+    await axios.delete(`${URL}deleteTask?_id=${task._id}`).then((res) => {
       if (res.status === 200) {
       const stayedTasks = tasks.filter((i)=> i._id !== task._id);
       setTasks(stayedTasks)
@@ -18,7 +18,7 @@ function EditTask({task, tasks, setEditTask, updateText, setTasks, taskText}) {
   }
 
   const doneEdit = async (task) => {
-    await axios.patch(`${url}updateTaskText`, {
+    await axios.patch(`${URL}updateTaskText`, {
       _id: task._id,
       text: taskText
     }).then(res => {
@@ -34,7 +34,7 @@ function EditTask({task, tasks, setEditTask, updateText, setTasks, taskText}) {
   }
 
   const changeChecked = async (task) => {
-    await axios.patch(`${url}updateTask`, {
+    await axios.patch(`${URL}updateTask`, {
       _id: task._id,
       isCheck: !task.isCheck
     }).then(res => {
